@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: StatefulSet
+
+metadata:
+  name: nginx-stateful
+  namespace: devops-lab
+
+spec:
+  serviceName: nginx-stateful
+
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: nginx-stateful
+
+  template:
+    metadata:
+      labels:
+        app: nginx-stateful
+
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
