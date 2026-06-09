@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+
+metadata:
+  name: demo-job
+  namespace: devops-lab
+
+spec:
+  template:
+    spec:
+      containers:
+      - name: hello
+        image: busybox
+        command: ["sh", "-c", "echo Job Executed Successfully"]
+
+      restartPolicy: Never
